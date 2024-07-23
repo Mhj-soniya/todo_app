@@ -3,9 +3,68 @@
 @import "tailwindcss/utilities";
 
 /* This file is for your main application CSS */
+h1{
+    font-size: larger;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.todo-form{
+    border: 1px solid #ccc; /* Light grey border */
+    padding: 20px; /* Padding inside the section */
+    border-radius: 8px; /* Optional: rounded corners */
+    background-color: #f9f9f9; /* Light background color */
+    margin-bottom: 20px;
+}
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+
+  .todo-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #4682B4;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-top: 10px;
+  }
+  
+  .todo-btn:hover {
+    background-color:  #357ABD;
+  }
+
+  .delete-btn{
+    display: inline-block;
+    padding: 0px 10px;
+    background-color: red;
+    color: white;
+    text-align: center;
+    border-radius:5px;
+    text-decoration: none;
+  }
+
 .todo-list{
     display: flex;
     justify-content: space-between;
     margin: 0;
     margin-bottom: 10px;
+}
+
+.todo-nav a{
+    color: rgb(36, 36, 237);          /* Blue text color */
+    text-decoration: none; /* Underline text */
+    /* margin-left: 5px;   Space between links */
 }

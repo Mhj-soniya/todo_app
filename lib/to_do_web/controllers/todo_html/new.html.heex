@@ -1,17 +1,17 @@
 <div>
     <h1>Todos</h1>
-    <section>
+    <section class="todo-form">
         <.form :let={f} for={@changeset} action={~p"/todo"} method="post">
-            <div>
+            <div class="form-group">
                 <label>Text</label>
                 <.input field={f[:text]} type="text"/>
             </div>
-            <div>
+            <div class="todo-btn">
                 <button type="submit">ADD TODO</button>
             </div>
         </.form>
     </section>
-    <section>
+    <section class="todo-form">
         <ul>
             <%= for task <- @task do %>
             <li class="todo-list">
@@ -23,13 +23,14 @@
                 href={~s"/todo/#{task.id}"}
                 method="delete"
                 data-confirm="Are you sure you want to delete the task?"
+                class = "delete-btn"
                 >Delete</.link>
             </li>
             <% end %>
         </ul>
     </section>
-    <section>
-        <nav>
+    <section> 
+        <nav class="todo-nav">
             <text>Show:</text>
             <.link href={~p"/todos?filter=all"}>All</.link>
             <.link href={~p"/todos?filter=completed"}>Completed</.link>
