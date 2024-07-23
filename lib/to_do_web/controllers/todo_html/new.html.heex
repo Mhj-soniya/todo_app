@@ -1,0 +1,39 @@
+<div>
+    <h1>Todos</h1>
+    <section>
+        <.form :let={f} for={@changeset} action={~p"/todo"} method="post">
+            <div>
+                <label>Text</label>
+                <.input field={f[:text]} type="text"/>
+            </div>
+            <div>
+                <button type="submit">ADD TODO</button>
+            </div>
+        </.form>
+    </section>
+    <section>
+        <ul>
+            <%= for task <- @task do %>
+            <li class="todo-list">
+                <.form :let={_f} for={@changeset} action={~s"/todo/#{task.id}/update"} method="put">
+                    <.input type="checkbox" name="todo[completed]" value="true" checked={task.completed} onclick="this.form.submit()"/>
+                </.form>
+                <p><%= task.text %></p>
+                <.link
+                href={~s"/todo/#{task.id}"}
+                method="delete"
+                data-confirm="Are you sure you want to delete the task?"
+                >Delete</.link>
+            </li>
+            <% end %>
+        </ul>
+    </section>
+    <section>
+        <nav>
+            <text>Show:</text>
+            <.link href={~p"/todos?filter=all"}>All</.link>
+            <.link href={~p"/todos?filter=completed"}>Completed</.link>
+            <.link href={~p"/todos?filter=active"}>Active</.link>
+        </nav>
+    </section>
+</div>
